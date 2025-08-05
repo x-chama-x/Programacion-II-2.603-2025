@@ -12,3 +12,17 @@ Desarrolle un sistema para simular la gestión de la producción de una fábrica
 - Cada técnico puede estar asignado a una máquina en un rango de fechas, indicando también el turno en el que trabaja (mañana, tarde o noche).
 - Administradores: Poseen los mismos atributos que los técnicos. Se encargan de asignar técnicos a cada máquina e indican si alguna máquina está operativa o no.
 - Al sistema podrán acceder solo los administradores.
+
+## Patrones utilizados
+
+**Patrón Singleton:**
+
+- Implementado en la clase FabricaGolazo
+- Asegura que solo exista una instancia de la fábrica en todo el sistema
+  Se implementa mediante un constructor privado y un método getInstance() estático
+
+**Patrón Strategy:**
+
+- Implementado en el paquete funcionalidades
+- Las diferentes capacidades de las máquinas (coser, inflar, empaquetar) están definidas como estrategias separadas
+- Interfaz Funcionalidad con implementaciones concretas: CapazDeCoser, CapazDeInflar, CapazDeEmpaquetar
