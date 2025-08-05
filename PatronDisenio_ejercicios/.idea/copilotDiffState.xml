@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/src/ejercicio1fabpelotas/CoserPelota.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/src/ejercicio1fabpelotas/CoserPelota.java" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/ejercicio1fabpelotas/capacidades/CapazDeCoser.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/src/ejercicio1fabpelotas/capacidades/CapazDeCoser.java" />
+              <option name="updatedContent" value="package ejercicio1fabpelotas.capacidades;&#10;&#10;import ejercicio1fabpelotas.Pelota;&#10;&#10;public class CapazDeCoser implements Funcionalidad {&#10;    @Override&#10;    public void ejecutarFuncion(Pelota pelota) {&#10;        pelota.setCosida(true);&#10;    }&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/ejercicio1fabpelotas/capacidades/CapazDeEmpaquetar.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/src/ejercicio1fabpelotas/capacidades/CapazDeEmpaquetar.java" />
+              <option name="updatedContent" value="package ejercicio1fabpelotas.capacidades;&#10;&#10;import ejercicio1fabpelotas.Pelota;&#10;&#10;public class CapazDeEmpaquetar implements Funcionalidad {&#10;    @Override&#10;    public void ejecutarFuncion(Pelota pelota) {&#10;        pelota.setEmpaquetada(true);&#10;    }&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/ejercicio1fabpelotas/capacidades/CapazDeInflar.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/src/ejercicio1fabpelotas/capacidades/CapazDeInflar.java" />
+              <option name="updatedContent" value="package ejercicio1fabpelotas.capacidades;&#10;&#10;import ejercicio1fabpelotas.Pelota;&#10;&#10;public class CapazDeInflar implements Funcionalidad {&#10;    @Override&#10;    public void ejecutarFuncion(Pelota pelota) {&#10;        pelota.setInflada(true);&#10;    }&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/ejercicio1fabpelotas/capacidades/Funcionalidad.java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/src/ejercicio1fabpelotas/capacidades/Funcionalidad.java" />
+              <option name="updatedContent" value="package ejercicio1fabpelotas.capacidades;&#10;&#10;import ejercicio1fabpelotas.Pelota;&#10;&#10;public interface Funcionalidad {&#10;    void ejecutarFuncion(Pelota pelota);&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
