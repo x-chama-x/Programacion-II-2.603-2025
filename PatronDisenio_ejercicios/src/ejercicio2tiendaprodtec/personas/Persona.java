@@ -1,6 +1,8 @@
-package ejercicio2tiendaprodtec;
+package ejercicio2tiendaprodtec.personas;
 
-public abstract class Persona {
+import ejercicio2tiendaprodtec.Direccion;
+
+public abstract class Persona implements Contactable {
     private String cuit;
     private String nombre;
     private String telefono;

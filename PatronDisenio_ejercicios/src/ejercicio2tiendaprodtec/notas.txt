@@ -1,0 +1,4 @@
+Patrón Singleton
+Para gestionar el sistema de ventas general, ya que necesitamos una única instancia que controle todo el sistema.
+Sería útil para mantener un único punto de acceso a las operaciones de gestión de ventas, productos y usuarios.
+

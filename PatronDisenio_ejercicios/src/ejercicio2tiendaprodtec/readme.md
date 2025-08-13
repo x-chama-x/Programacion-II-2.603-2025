@@ -19,3 +19,5 @@ Se requiere implementar una aplicación para gestionar el circuito de ventas de 
   También puede cargar al stock productos faltantes, así como ver todas las ventas realizadas.
 - Los clientes solo pueden ver los productos en stock y sus precios para realizar la compra.
 - Los proveedores no pueden acceder al sistema.
+
+## Patrones utilizados
