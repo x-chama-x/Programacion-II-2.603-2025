@@ -1,0 +1,137 @@
+<diagram program="umletino" version="15.1"><zoom_level>6</zoom_level><element><id>UMLClass</id><coordinates><x>174</x><y>204</y><w>180</w><h>78</h></coordinates><panel_attributes>FabricaGolazo
+--
+- asignaciones: ArrayList&lt;MaquinaTecnicoJornada&gt;
+--
+- FabricaGolazo()
+- inicializarPlanta()
+- fabricarPelota()
++ fabricarPelotas()
++ getCantidadPelotasFabricadas(): int
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>180</x><y>330</y><w>126</w><h>66</h></coordinates><panel_attributes>Planta
+--
+- color: String
+- superficieM2: double
+--
++ agregarMaquina(Maquina)
++ agregarProceso(Proceso)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>180</x><y>486</y><w>126</w><h>108</h></coordinates><panel_attributes>Maquina
+--
+- ns: Integer
+- marca: String
+- modelo: String
+- estado: boolean
+- maquinaReemplazo: Maquina
+
+
+--
++ ejecutarFuncion()
++ esOperativa(): boolean
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>246</x><y>390</y><w>54</w><h>108</h></coordinates><panel_attributes>lt=&lt;-
+- maquinas
+m1=0..n</panel_attributes><additional_attributes>10;160;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>456</x><y>504</y><w>156</w><h>72</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+/Funcionalidad/
+--
+
+--
+/+ ejecutarFuncion()/
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>462</x><y>426</y><w>126</w><h>48</h></coordinates><panel_attributes>CapazDeInflar
+--
+
+--
++ ejecutarFuncion()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>816</x><y>294</y><w>126</w><h>60</h></coordinates><panel_attributes>CapazDeCoser
+--
+
+--
++ ejecutarFuncion()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>606</x><y>348</y><w>288</w><h>210</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;330;460;330;460;10</additional_attributes></element><element><id>Relation</id><coordinates><x>300</x><y>540</y><w>168</w><h>30</h></coordinates><panel_attributes>lt=&lt;-
+m1=1
+- funcionalidad</panel_attributes><additional_attributes>260;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>708</x><y>150</y><w>126</w><h>66</h></coordinates><panel_attributes>/Empleado/
+--
+- dni: Integer
+- nomApe: String
+- feNac: Date
+- telefono: ArrayList&lt;Integer&gt;
+--
++ mostrarInfo()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>240</x><y>276</y><w>48</w><h>66</h></coordinates><panel_attributes>lt=&lt;-
+- plantas
+m1=0..n</panel_attributes><additional_attributes>10;90;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>426</x><y>120</y><w>126</w><h>66</h></coordinates><panel_attributes>Tecnico
+--
+
+--
++ estaDisponible(): boolean
++ gregarAsignacion()
++ removerAsignacion()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>426</x><y>210</y><w>222</w><h>66</h></coordinates><panel_attributes>Administrador
+--
+
+--
++ asignarJornada: (ArrayList&lt;MaquinaTecnicoJornada&gt;)
++ asignarTecnicoAMaquina(Tecnico,Maquina,Date,Date,String)
++ cambiarEstadoMaquina(Maquina,boolean)
++ asignarMaquinaReemplazo(Maquina,Maquina)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>642</x><y>192</y><w>78</w><h>54</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>110;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>546</x><y>126</y><w>174</w><h>48</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>270;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>234</x><y>144</y><w>204</w><h>72</h></coordinates><panel_attributes>lt=&lt;-
+- tecnicos
+m1=0..n</panel_attributes><additional_attributes>320;20;80;20;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>348</x><y>240</y><w>90</w><h>30</h></coordinates><panel_attributes>lt=&lt;-
+- administradores
+m1=0..n</panel_attributes><additional_attributes>130;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>420</x><y>330</y><w>126</w><h>66</h></coordinates><panel_attributes>/Proceso/
+--
+- nombre: String
+- complejidad: int
+- descripcion: String
+--
+/ + ejecutarProceso(Pelota)/
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>300</x><y>348</y><w>132</w><h>30</h></coordinates><panel_attributes>lt=&lt;-
+- procesos
+m1=0..n</panel_attributes><additional_attributes>200;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>666</x><y>240</y><w>126</w><h>60</h></coordinates><panel_attributes>Cosido
+--
+- maquinas: Arraylist&lt;Maquina&gt;
+--
++ ejecutarProceso(Pelota)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>636</x><y>318</y><w>126</w><h>54</h></coordinates><panel_attributes>Inflado
+--
+- maquina: Maquina
+--
++ ejecutarProceso(Pelota)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>540</x><y>270</y><w>138</w><h>96</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;140;210;10</additional_attributes></element><element><id>Relation</id><coordinates><x>540</x><y>342</y><w>108</w><h>42</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;50;160;10</additional_attributes></element><element><id>Relation</id><coordinates><x>522</x><y>468</y><w>18</w><h>48</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>636</x><y>402</y><w>126</w><h>54</h></coordinates><panel_attributes>Empaquetado
+--
+- maquina: Maquina
+--
++ ejecutarProceso(Pelota)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>540</x><y>378</y><w>108</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;160;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>702</x><y>474</y><w>126</w><h>48</h></coordinates><panel_attributes>CapazDeEmpaquetar
+--
+
+--
++ ejecutarFuncion()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>606</x><y>504</y><w>108</w><h>18</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;160;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>48</x><y>336</y><w>102</w><h>90</h></coordinates><panel_attributes>Pelota
+--
+- cosida: boolean
+- inflada: boolean
+- empaquetada: boolean
+--
++ setCosida(boolean)
++ setInflada(boolean)
++ setEmpaquetada(boolean)
++ estaCompleta(): boolean
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>90</x><y>228</y><w>96</w><h>120</h></coordinates><panel_attributes>lt=&lt;-
+- pelotasFabricadas
+m1=0..n</panel_attributes><additional_attributes>10;180;10;10;140;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>588</x><y>42</y><w>126</w><h>66</h></coordinates><panel_attributes>MaquinaTecnicoJornada
+--
+- maquina: Maquina
+--
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>786</x><y>36</y><w>126</w><h>72</h></coordinates><panel_attributes>Jornada
+--
+- feInicio: Date
+- feFin: Date
+- turno: String
+--
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>708</x><y>60</y><w>90</w><h>30</h></coordinates><panel_attributes>lt=&lt;-
+- jornada
+m1=1</panel_attributes><additional_attributes>130;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>492</x><y>60</y><w>108</w><h>72</h></coordinates><panel_attributes>lt=&lt;-
+- tecnico
+m1=1</panel_attributes><additional_attributes>10;100;10;20;160;20</additional_attributes></element><element><id>Relation</id><coordinates><x>450</x><y>36</y><w>150</w><h>96</h></coordinates><panel_attributes>lt=&lt;-
+- historialAsignaciones
+m1=0..n</panel_attributes><additional_attributes>230;20;30;20;30;140</additional_attributes></element></diagram>
