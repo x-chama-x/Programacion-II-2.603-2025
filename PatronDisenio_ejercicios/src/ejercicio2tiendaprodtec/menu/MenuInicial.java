@@ -29,7 +29,12 @@ public class MenuInicial implements EstrategiaMenu {
         System.out.print("Clave: ");
         String clave = scanner.nextLine();
 
-        return Sistema.getInstancia().validarAdministrador(nombre, clave);
+        Administrador admin = Sistema.getInstancia().validarAdministrador(nombre, clave);
+        if (admin != null) {
+            contexto.setEstrategia(new MenuAdministrador(admin));
+            return true;
+        }
+        return false;
     }
 
     private boolean loginCliente() {
@@ -48,7 +53,6 @@ public class MenuInicial implements EstrategiaMenu {
             case 1:
                 if (loginAdministrador()) {
                     System.out.println("Login exitoso!");
-                    contexto.setEstrategia(new MenuAdministrador());
                 } else {
                     System.out.println("Credenciales inválidas");
                 }

@@ -68,13 +68,13 @@ public class Sistema {
         proveedores.add(proveedor);
     }
 
-    public boolean validarAdministrador(String nombre, String clave) {
+    public Administrador validarAdministrador(String nombre, String clave) {
         for (Administrador admin : administradores) {
             if (admin.getNombre().equals(nombre) && admin.getClave().equals(clave)) {
-                return true;
+                return admin;
             }
         }
-        return false;
+        return null;
     }
 
     public boolean validarCliente(String nombre, String clave) {
@@ -84,5 +84,19 @@ public class Sistema {
             }
         }
         return false;
+    }
+
+    public void verListadoClientes(){
+        System.out.println("=== Listado de Clientes ===");
+        for (Cliente cliente : clientes) {
+            System.out.println(cliente.obtenerInformacionContacto());
+        }
+    }
+
+    public void verListadoProveedores() {
+        System.out.println("=== Listado de Proveedores ===");
+        for (Proveedor proveedor : proveedores) {
+            System.out.println(proveedor.obtenerInformacionContacto());
+        }
     }
 }

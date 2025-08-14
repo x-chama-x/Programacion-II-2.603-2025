@@ -58,4 +58,8 @@ public class Administrador extends Persona {
 
         System.out.println("\nCliente creado exitosamente!");
     }
+
+    public void verListadoClientes() {
+        Sistema.getInstancia().verListadoClientes();
+    }
 }
