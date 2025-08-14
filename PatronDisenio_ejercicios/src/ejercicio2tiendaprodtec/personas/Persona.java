@@ -1,17 +1,29 @@
 package ejercicio2tiendaprodtec.personas;
 
-import ejercicio2tiendaprodtec.Direccion;
-
 public abstract class Persona implements Contactable {
-    private String cuit;
     private String nombre;
+    private String cuit;
     private String telefono;
     private Direccion direccion;
+    private String clave;
 
-    public Persona(String cuit, String nombre, String telefono, Direccion direccion) {
-        this.cuit = cuit;
+    public Persona(String nombre, String cuit, String telefono, Direccion direccion, String clave) {
         this.nombre = nombre;
+        this.cuit = cuit;
         this.telefono = telefono;
         this.direccion = direccion;
+        this.clave = clave;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getCuit() {
+        return cuit;
+    }
+
+    public String getClave() {
+        return clave;
     }
 }

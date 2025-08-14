@@ -1,7 +1,27 @@
-Patrón Singleton
-Para gestionar el sistema de ventas general, ya que necesitamos una única instancia que controle todo el sistema.
-Sería útil para mantener un único punto de acceso a las operaciones de gestión de ventas, productos y usuarios.
+- Patrón Singleton
+    - Para gestionar el sistema de ventas general, ya que necesitamos una única instancia que controle todo el sistema.
+    - Sería útil para mantener un único punto de acceso a las operaciones de gestión de ventas, productos y usuarios.
 
-Patrón Strategy
-para crear menús según los diferentes tipos de usuarios (Administrador y Cliente) mencionados en el enunciado,
-podemos hacer lo siguiente:
+- Patrón Strategy
+    - para crear menús según los diferentes tipos de usuarios (Administrador y Cliente) mencionados en el enunciado,
+    - Este patrón nos permite:
+        - Cambiar dinámicamente el menú según el tipo de usuario
+        - Mantener separada la lógica de cada menú
+        - Facilitar la adición de nuevos tipos de menús en el futuro
+        - Cumplir con los requisitos del enunciado donde cada tipo de usuario tiene diferentes permisos y acciones disponible.
+
+    - menuContexto: Utiliza el patrón Strategy para manejar diferentes tipos de menús
+
+    - Clase Sistema:
+    - metodo iniciar():
+        - Establece el menú inicial como primera estrategia
+        - Entra en un bucle infinito que:
+            -Muestra las opciones del menú actual
+            - Lee la opción del usuario
+            - Ejecuta la opción seleccionada
+
+- El flujo es:
+    - Se inicia el sistema con el menú inicial
+    - Según la opción seleccionada, se cambia al menú de Administrador o Cliente
+    - Cada menú maneja sus propias opciones y lógica
+    - Se mantiene el bucle hasta que el usuario elija salir

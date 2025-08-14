@@ -1,4 +1,4 @@
-package ejercicio2tiendaprodtec;
+package ejercicio2tiendaprodtec.personas;
 
 public class Direccion {
     private String calle;
