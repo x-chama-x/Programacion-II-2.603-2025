@@ -15,11 +15,12 @@ public class MenuAdministrador implements EstrategiaMenu {
         System.out.println("1. Agregar cliente");
         System.out.println("2. Actualizar cliente");
         System.out.println("3. Eliminar cliente");
-        System.out.println("4. ver clientes");
+        System.out.println("4. Ver clientes");
         System.out.println("5. Ver proveedores");
         System.out.println("6. Agregar proveedor");
-        System.out.println("7. Actualizar stock");
-        System.out.println("8. Ver ventas realizadas");
+        System.out.println("7. Actualizar proveedor");
+        System.out.println("8. Actualizar stock");
+        System.out.println("9. Ver ventas realizadas");
         System.out.println("0. Salir");
     }
 
@@ -41,6 +42,10 @@ public class MenuAdministrador implements EstrategiaMenu {
                 administrador.verListadoProveedores();
                 break;
             case 6:
+                administrador.agregarNuevoProveedor();
+                break;
+            case 7:
+                administrador.actualizarProveedor();
                 break;
             case 0:
                 System.out.println("Volviendo al menú principal...");

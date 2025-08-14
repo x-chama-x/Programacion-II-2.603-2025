@@ -117,4 +117,22 @@ public class Sistema {
             }
         }
     }
+
+    public Proveedor buscarProveedorPorCuit(String cuit) {
+        for (Proveedor proveedor : proveedores) {
+            if (proveedor.getCuit().equals(cuit)) {
+                return proveedor;
+            }
+        }
+        return null;
+    }
+
+    public void actualizarProveedor(Proveedor proveedorActualizado) {
+        for (int i = 0; i < proveedores.size(); i++) {
+            if (proveedores.get(i).getCuit().equals(proveedorActualizado.getCuit())) {
+                proveedores.set(i, proveedorActualizado);
+                return;
+            }
+        }
+    }
 }
