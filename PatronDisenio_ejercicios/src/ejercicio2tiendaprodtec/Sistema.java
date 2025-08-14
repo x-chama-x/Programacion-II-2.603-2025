@@ -23,6 +23,7 @@ public class Sistema {
         return instanciaUnica;
     }
 
+    // Esta función inicia el sistema y muestra el menú inicial
     public void iniciar() {
         menuContexto.setEstrategia(new MenuInicial(menuContexto));
         Scanner scanner = new Scanner(System.in);
