@@ -99,4 +99,22 @@ public class Sistema {
             System.out.println(proveedor.obtenerInformacionContacto());
         }
     }
+
+    public Cliente buscarClientePorCuit(String cuit) {
+        for (Cliente cliente : clientes) {
+            if (cliente.getCuit().equals(cuit)) {
+                return cliente;
+            }
+        }
+        return null;
+    }
+
+    public void actualizarCliente(Cliente clienteActualizado) {
+        for (int i = 0; i < clientes.size(); i++) {
+            if (clientes.get(i).getCuit().equals(clienteActualizado.getCuit())) {
+                clientes.set(i, clienteActualizado);
+                return;
+            }
+        }
+    }
 }

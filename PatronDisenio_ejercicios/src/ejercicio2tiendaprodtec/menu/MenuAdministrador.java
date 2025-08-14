@@ -30,6 +30,7 @@ public class MenuAdministrador implements EstrategiaMenu {
                 administrador.agregarNuevoCliente();
                 break;
             case 2:
+                administrador.actualizarCliente();
                 break;
             case 3:
                 break;
@@ -37,6 +38,7 @@ public class MenuAdministrador implements EstrategiaMenu {
                 administrador.verListadoClientes();
                 break;
             case 5:
+                administrador.verListadoProveedores();
                 break;
             case 6:
                 break;

@@ -23,6 +23,14 @@ public abstract class Persona implements Contactable {
         return cuit;
     }
 
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public Direccion getDireccion() {
+        return direccion;
+    }
+
     public String getClave() {
         return clave;
     }

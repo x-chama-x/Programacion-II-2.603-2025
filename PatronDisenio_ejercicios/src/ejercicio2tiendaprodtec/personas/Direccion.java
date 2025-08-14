@@ -14,4 +14,24 @@ public class Direccion {
         this.ciudad = ciudad;
         this.codigoPostal = codigoPostal;
     }
+
+    public String getCalle() {
+        return calle;
+    }
+
+    public Integer getNumero() {
+        return numero;
+    }
+
+    public String getComuna() {
+        return comuna;
+    }
+
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    public String getCodigoPostal() {
+        return codigoPostal;
+    }
 }

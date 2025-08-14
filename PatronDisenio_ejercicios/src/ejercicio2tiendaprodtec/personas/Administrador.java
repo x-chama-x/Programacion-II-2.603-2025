@@ -62,4 +62,70 @@ public class Administrador extends Persona {
     public void verListadoClientes() {
         Sistema.getInstancia().verListadoClientes();
     }
+
+    public void verListadoProveedores() {
+        Sistema.getInstancia().verListadoProveedores();
+    }
+
+    public void actualizarCliente() {
+        Scanner scanner = new Scanner(System.in);
+        Sistema sistema = Sistema.getInstancia();
+
+        System.out.println("=== Actualizar Cliente ===");
+        System.out.print("Ingrese CUIT del cliente a actualizar: ");
+        String cuitBuscar = scanner.nextLine();
+
+        Cliente clienteExistente = sistema.buscarClientePorCuit(cuitBuscar);
+        if (clienteExistente == null) {
+            System.out.println("Cliente no encontrado.");
+            return;
+        }
+
+        System.out.println("Cliente encontrado: " + clienteExistente.obtenerInformacionContacto());
+
+        System.out.print("Ingrese nuevo nombre (Enter para mantener actual): ");
+        String nombre = scanner.nextLine();
+        nombre = nombre.isEmpty() ? clienteExistente.getNombre() : nombre;
+
+        System.out.print("Ingrese nuevo teléfono (Enter para mantener actual): ");
+        String telefono = scanner.nextLine();
+        telefono = telefono.isEmpty() ? clienteExistente.getTelefono() : telefono;
+
+        System.out.print("Ingrese nueva clave (Enter para mantener actual): ");
+        String clave = scanner.nextLine();
+        clave = clave.isEmpty() ? clienteExistente.getClave() : clave;
+
+        // Datos de la dirección
+        Direccion direccionActual = clienteExistente.getDireccion();
+        System.out.println("\nDatos de la dirección:");
+
+        System.out.print("Calle (Enter para mantener actual): ");
+        String calle = scanner.nextLine();
+        calle = calle.isEmpty() ? direccionActual.getCalle() : calle;
+
+        System.out.print("Número (Enter para mantener actual): ");
+        String numStr = scanner.nextLine();
+        Integer numero = numStr.isEmpty() ? direccionActual.getNumero() : Integer.parseInt(numStr);
+
+        System.out.print("Comuna (Enter para mantener actual): ");
+        String comuna = scanner.nextLine();
+        comuna = comuna.isEmpty() ? direccionActual.getComuna() : comuna;
+
+        System.out.print("Ciudad (Enter para mantener actual): ");
+        String ciudad = scanner.nextLine();
+        ciudad = ciudad.isEmpty() ? direccionActual.getCiudad() : ciudad;
+
+        System.out.print("Código Postal (Enter para mantener actual): ");
+        String codigoPostal = scanner.nextLine();
+        codigoPostal = codigoPostal.isEmpty() ? direccionActual.getCodigoPostal() : codigoPostal;
+
+        // Crear nueva dirección y cliente
+        Direccion nuevaDireccion = new Direccion(calle, numero, comuna, ciudad, codigoPostal);
+        Cliente clienteActualizado = new Cliente(nombre, clienteExistente.getCuit(), telefono, nuevaDireccion, clave);
+
+        // Actualizar en el sistema
+        sistema.actualizarCliente(clienteActualizado);
+
+        System.out.println("\nCliente actualizado exitosamente!");
+    }
 }
