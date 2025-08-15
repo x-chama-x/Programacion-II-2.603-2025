@@ -16,4 +16,24 @@ public abstract class Producto {
         this.stockDisponible = stockDisponible;
         this.categoria = categoria;
     }
+
+    public Integer getID() {
+        return ID;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public double getPrecioActual() {
+        return precioActual;
+    }
+
+    public Integer getStockDisponible() {
+        return stockDisponible;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
 }

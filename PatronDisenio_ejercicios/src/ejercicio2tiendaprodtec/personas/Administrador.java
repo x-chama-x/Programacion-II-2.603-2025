@@ -242,4 +242,8 @@ public class Administrador extends Persona {
 
         System.out.println("\nProveedor actualizado exitosamente!");
     }
+
+    public void verProductosEnStock() {
+        Sistema.getInstancia().verProductosEnStock();
+    }
 }

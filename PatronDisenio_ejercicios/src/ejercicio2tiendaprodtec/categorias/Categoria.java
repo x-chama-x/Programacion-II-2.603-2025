@@ -16,4 +16,20 @@ public abstract class Categoria {
         this.descripcion = descripcion;
         this.productos = new ArrayList<>();
     }
+
+    public Integer getID() {
+        return ID;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public ArrayList<Producto> getProductos() {
+        return productos;
+    }
 }

@@ -135,4 +135,13 @@ public class Sistema {
             }
         }
     }
+
+    public void verProductosEnStock() {
+        MenuStock menuStock = new MenuStock();
+        menuStock.mostrarMenu();
+    }
+
+    public ArrayList<Producto> getStock() {
+        return Stock;
+    }
 }

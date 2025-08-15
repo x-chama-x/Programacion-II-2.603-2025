@@ -19,7 +19,7 @@ public class MenuAdministrador implements EstrategiaMenu {
         System.out.println("5. Ver proveedores");
         System.out.println("6. Agregar proveedor");
         System.out.println("7. Actualizar proveedor");
-        System.out.println("8. Actualizar stock");
+        System.out.println("8. Ver productos en stock");
         System.out.println("9. Ver ventas realizadas");
         System.out.println("0. Salir");
     }
@@ -46,6 +46,9 @@ public class MenuAdministrador implements EstrategiaMenu {
                 break;
             case 7:
                 administrador.actualizarProveedor();
+                break;
+            case 8:
+                administrador.verProductosEnStock();
                 break;
             case 0:
                 System.out.println("Volviendo al menú principal...");
