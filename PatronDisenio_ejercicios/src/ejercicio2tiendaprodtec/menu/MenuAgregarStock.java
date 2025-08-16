@@ -2,7 +2,6 @@ package ejercicio2tiendaprodtec.menu;
 
 import ejercicio2tiendaprodtec.Sistema;
 import ejercicio2tiendaprodtec.productos.Producto;
-import ejercicio2tiendaprodtec.personas.Proveedor;
 import java.util.*;
 
 public class MenuAgregarStock implements EstrategiaMenu {
@@ -46,17 +45,8 @@ public class MenuAgregarStock implements EstrategiaMenu {
                     producto.getNombre(),
                     producto.getStockDisponible());
 
-                // Mostrar proveedores del producto
-                System.out.println("   Proveedores:");
-                if (producto.getProveedores().isEmpty()) {
-                    System.out.println("      - No tiene proveedores asignados");
-                } else {
-                    for (Proveedor proveedor : producto.getProveedores()) {
-                        System.out.printf("      - %s (CUIT: %s)%n",
-                            proveedor.getNombre(),
-                            proveedor.getCuit());
-                    }
-                }
+                // Mostrar proveedores usando el método del Sistema
+                System.out.print(sistema.obtenerInformacionProveedoresProducto(producto));
                 System.out.println(); // Línea en blanco entre productos
 
                 mapaProductos.put(opcion, producto);

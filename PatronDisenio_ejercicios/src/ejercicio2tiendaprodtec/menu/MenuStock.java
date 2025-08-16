@@ -1,7 +1,6 @@
 package ejercicio2tiendaprodtec.menu;
 
 import ejercicio2tiendaprodtec.Sistema;
-import ejercicio2tiendaprodtec.personas.Proveedor;
 import ejercicio2tiendaprodtec.productos.Producto;
 
 import java.util.*;
@@ -67,17 +66,7 @@ public class MenuStock implements EstrategiaMenu {
                         p.getPrecioActual(),
                         p.getStockDisponible());
 
-                // Mostrar proveedores del producto
-                System.out.println("Proveedores:");
-                if (p.getProveedores().isEmpty()) {
-                    System.out.println("   - No tiene proveedores asignados");
-                } else {
-                    for (Proveedor proveedor : p.getProveedores()) {
-                        System.out.printf("   - %s (CUIT: %s)%n",
-                            proveedor.getNombre(),
-                            proveedor.getCuit());
-                    }
-                }
+                System.out.print(sistema.obtenerInformacionProveedoresProducto(p));
                 System.out.println(); // Línea en blanco entre productos
             }
         }

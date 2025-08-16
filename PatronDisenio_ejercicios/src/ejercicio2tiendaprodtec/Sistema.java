@@ -229,4 +229,20 @@ public class Sistema {
             menuAgregarStock.ejecutarOpcion(opcion);
         }
     }
+
+    public String obtenerInformacionProveedoresProducto(Producto producto) {
+        StringBuilder info = new StringBuilder();
+        info.append("Proveedores:\n");
+
+        if (producto.getProveedores().isEmpty()) {
+            info.append("   - No tiene proveedores asignados\n");
+        } else {
+            for (Proveedor proveedor : producto.getProveedores()) {
+                info.append(String.format("   - %s (CUIT: %s)%n",
+                    proveedor.getNombre(),
+                    proveedor.getCuit()));
+            }
+        }
+        return info.toString();
+    }
 }
