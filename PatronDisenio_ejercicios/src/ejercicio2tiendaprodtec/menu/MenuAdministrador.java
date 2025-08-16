@@ -52,7 +52,7 @@ public class MenuAdministrador implements EstrategiaMenu {
                 administrador.verProductosEnStock();
                 break;
             case 9:
-                // Aquí se podría implementar la lógica para cargar productos faltantes al stock
+                administrador.cargarProductosFaltantes();
                 break;
             case 0:
                 System.out.println("Volviendo al menú principal...");

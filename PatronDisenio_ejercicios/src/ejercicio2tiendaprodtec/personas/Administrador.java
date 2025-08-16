@@ -1,7 +1,9 @@
 package ejercicio2tiendaprodtec.personas;
 
 import ejercicio2tiendaprodtec.Sistema;
+import ejercicio2tiendaprodtec.productos.Producto;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Administrador extends Persona {
@@ -245,5 +247,9 @@ public class Administrador extends Persona {
 
     public void verProductosEnStock() {
         Sistema.getInstancia().verProductosEnStock();
+    }
+
+    public void cargarProductosFaltantes() {
+        Sistema.getInstancia().cargarProductosFaltantes();
     }
 }

@@ -67,6 +67,22 @@ public class Sistema {
     }
 
     public void agregarProveedor(Proveedor proveedor) {
+        System.out.println("\n=== Asignar Producto al Proveedor ===");
+        System.out.println("Productos disponibles:");
+        for (int i = 0; i < Stock.size(); i++) {
+            System.out.println((i + 1) + ". " + Stock.get(i).getNombre());
+        }
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("\nSeleccione el número del producto a asignar (0 para ninguno): ");
+        int opcion = scanner.nextInt();
+
+        if (opcion > 0 && opcion <= Stock.size()) {
+            Producto productoSeleccionado = Stock.get(opcion - 1);
+            proveedor.asignarProducto(productoSeleccionado);
+            System.out.println("Producto asignado exitosamente!");
+        }
+
         proveedores.add(proveedor);
     }
 
@@ -167,5 +183,50 @@ public class Sistema {
         // Agregar productos al stock
         agregarProductoAlStock(tv1);
         agregarProductoAlStock(cel1);
+
+        // Crear proveedores iniciales y asignarles productos
+        Direccion direccionProv1 = new Direccion("Av. Corrientes", 1234, "CABA", "Buenos Aires", "C1043");
+        Direccion direccionProv2 = new Direccion("Av. Santa Fe", 2468, "CABA", "Buenos Aires", "C1425");
+
+        Proveedor prov1 = new Proveedor("ElectroTech", "30-12345678-9", "11-1234-5678", direccionProv1, "prov1", "www.electrotech.com");
+        Proveedor prov2 = new Proveedor("SmartPhone Store", "30-98765432-1", "11-8765-4321", direccionProv2, "prov2", "www.smartphonestore.com");
+
+        // Asignar productos a proveedores
+        prov1.asignarProducto(tv1);
+        prov2.asignarProducto(cel1);
+
+        // Agregar proveedores al sistema
+        proveedores.add(prov1);
+        proveedores.add(prov2);
+    }
+
+    // Metodo para ver productos y sus proveedores
+    public void verProductosYProveedores() {
+        System.out.println("\n=== Productos y sus Proveedores ===");
+        for (Producto producto : Stock) {
+            System.out.println("\nProducto: " + producto.getNombre());
+            System.out.println("Proveedores:");
+            if (producto.getProveedores().isEmpty()) {
+                System.out.println("- No tiene proveedores asignados");
+            } else {
+                for (Proveedor proveedor : producto.getProveedores()) {
+                    System.out.println("- " + proveedor.getNombre() + " (CUIT: " + proveedor.getCuit() + ")");
+                }
+            }
+        }
+    }
+
+    public void cargarProductosFaltantes() {
+        MenuAgregarStock menuAgregarStock = new MenuAgregarStock();
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            menuAgregarStock.mostrarMenu();
+            System.out.print("\nSeleccione el producto a cargar (0 para salir): ");
+            int opcion = scanner.nextInt();
+            if (opcion == 0) break;
+
+            menuAgregarStock.ejecutarOpcion(opcion);
+        }
     }
 }
