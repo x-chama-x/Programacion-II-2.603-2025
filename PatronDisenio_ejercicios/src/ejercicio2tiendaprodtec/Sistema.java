@@ -141,6 +141,10 @@ public class Sistema {
     public void verProductosEnStock() {
         MenuStock menuStock = new MenuStock();
         menuStock.mostrarMenu();
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese una opción: ");
+        int opcion = scanner.nextInt();
+        menuStock.ejecutarOpcion(opcion);
     }
 
     public ArrayList<Producto> getStock() {

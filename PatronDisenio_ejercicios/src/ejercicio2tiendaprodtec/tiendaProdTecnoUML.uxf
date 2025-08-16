@@ -192,4 +192,4 @@ m1=1</panel_attributes><additional_attributes>10;170;10;10;140;10</additional_at
 --
 + mostrarMenu():
 + ejecutarOpcion():
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1086</x><y>342</y><w>78</w><h>66</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;110;90</additional_attributes></element></diagram>
+- mostrarProductosCategoria(String)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1086</x><y>342</y><w>78</w><h>66</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;110;90</additional_attributes></element></diagram>
