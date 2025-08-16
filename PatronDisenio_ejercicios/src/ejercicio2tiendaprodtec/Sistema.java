@@ -1,8 +1,9 @@
 package ejercicio2tiendaprodtec;
 
+import ejercicio2tiendaprodtec.categorias.*;
 import ejercicio2tiendaprodtec.menu.*;
 import ejercicio2tiendaprodtec.personas.*;
-import ejercicio2tiendaprodtec.productos.Producto;
+import ejercicio2tiendaprodtec.productos.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -34,6 +35,7 @@ public class Sistema {
     // Esta función inicia el sistema y muestra el menú inicial
     public void iniciar() {
         crearAdminPorDefecto(); // Crear un administrador por defecto
+        inicializarProductos(); // Agregar productos iniciales
         iniciarMenuPrincipal();
     }
 
@@ -143,5 +145,23 @@ public class Sistema {
 
     public ArrayList<Producto> getStock() {
         return Stock;
+    }
+
+    public void agregarProductoAlStock(Producto producto) {
+        Stock.add(producto);
+    }
+
+    private void inicializarProductos() {
+        // Crear categorías
+        Televisor televisores = new Televisor(1, "Televisores", "Televisores de última generación");
+        Celular celulares = new Celular(2, "Celulares", "Smartphones de diferentes marcas");
+
+        // Crear productos con stock inicial
+        televisor_hitachi_C50 tv1 = new televisor_hitachi_C50(1, "Hitachi 50 pulgadas Smart", 250000.0, 5, televisores);
+        Samsung_a15 cel1 = new Samsung_a15(2, "Samsung A15 128GB", 180000.0, 10, celulares);
+
+        // Agregar productos al stock
+        agregarProductoAlStock(tv1);
+        agregarProductoAlStock(cel1);
     }
 }
