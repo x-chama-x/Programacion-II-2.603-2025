@@ -1,6 +1,7 @@
 package ejercicio2tiendaprodtec;
 
 import ejercicio2tiendaprodtec.personas.Cliente;
+import ejercicio2tiendaprodtec.productos.ProductoVendido;
 
 import java.util.ArrayList;
 import java.util.Date;

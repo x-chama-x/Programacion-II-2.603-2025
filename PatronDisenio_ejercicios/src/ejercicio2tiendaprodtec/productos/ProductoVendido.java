@@ -1,6 +1,4 @@
-package ejercicio2tiendaprodtec;
-
-import ejercicio2tiendaprodtec.productos.Producto;
+package ejercicio2tiendaprodtec.productos;
 
 public class ProductoVendido {
     private Producto producto;

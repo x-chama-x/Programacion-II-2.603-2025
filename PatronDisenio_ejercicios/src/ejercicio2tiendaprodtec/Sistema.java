@@ -216,7 +216,7 @@ public class Sistema {
         }
     }
 
-    public void cargarProductosFaltantes() {
+    public void cargarStockAProductosFaltantes() {
         MenuAgregarStock menuAgregarStock = new MenuAgregarStock();
         Scanner scanner = new Scanner(System.in);
 
