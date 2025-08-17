@@ -60,6 +60,12 @@ public abstract class Producto {
         this.stockDisponible += cantidad;
     }
 
+    public void reducirStock(int cantidad) {
+        if (cantidad > 0 && cantidad <= stockDisponible) {
+            stockDisponible -= cantidad;
+        }
+    }
+
     public void setStockDisponible(Integer stockDisponible) {
         this.stockDisponible = stockDisponible;
     }

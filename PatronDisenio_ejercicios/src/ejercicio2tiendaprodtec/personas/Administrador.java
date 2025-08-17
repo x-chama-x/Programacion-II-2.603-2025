@@ -1,12 +1,16 @@
 package ejercicio2tiendaprodtec.personas;
 
 import ejercicio2tiendaprodtec.Sistema;
-
+import ejercicio2tiendaprodtec.Venta;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Administrador extends Persona {
+    private final Sistema sistema;
+
     public Administrador(String nombre, String cuit, String telefono, Direccion direccion, String clave) {
         super(nombre, cuit, telefono, direccion, clave);
+        this.sistema = Sistema.getInstancia();
     }
 
     @Override
@@ -249,5 +253,40 @@ public class Administrador extends Persona {
 
     public void cargarStockAProductosFaltantes() {
         Sistema.getInstancia().cargarStockAProductosFaltantes();
+    }
+
+    public void verVentasRealizadas() {
+        System.out.println("\n=== Reporte de Ventas ===");
+        ArrayList<Venta> ventas = sistema.obtenerTodasLasVentas();
+
+        if (ventas.isEmpty()) {
+            System.out.println("No hay ventas registradas en el sistema.");
+            return;
+        }
+
+        double totalVentas = 0;
+        System.out.println("Detalle de ventas:");
+        System.out.println("----------------------------------------");
+
+        for (Venta venta : ventas) {
+            System.out.printf("Factura #%d - Fecha: %s%n",
+                venta.getNumeroFactura(),
+                venta.getFecha());
+            System.out.printf("Cliente: %s (CUIT: %s)%n",
+                venta.getClienteAssociado().getNombre(),
+                venta.getClienteAssociado().getCuit());
+            System.out.printf("Producto: %s%n",
+                venta.getProducto().getNombre());
+            System.out.printf("Cantidad: %d%n",
+                venta.getCantidad());
+            System.out.printf("Total: $%.2f%n",
+                venta.getTotal());
+            System.out.println("----------------------------------------");
+
+            totalVentas += venta.getTotal();
+        }
+
+        System.out.printf("%nTotal de todas las ventas: $%.2f%n", totalVentas);
+        System.out.printf("Cantidad de ventas realizadas: %d%n", ventas.size());
     }
 }

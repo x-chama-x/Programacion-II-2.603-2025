@@ -270,6 +270,36 @@ public class Sistema {
         return false;
     }
 
+    public void registrarVenta(Cliente cliente, Producto producto, int cantidad, double total) {
+        if (producto.getStockDisponible() >= cantidad) {
+            producto.reducirStock(cantidad);
+            Venta venta = new Venta(++ultimoNumeroFactura, cliente, producto, cantidad, total);
+            ventas.add(venta);
+        } else {
+            System.out.println("No hay suficiente stock disponible.");
+        }
+    }
+
+    public void mostrarComprasCliente(Cliente cliente) {
+        System.out.println("\n=== Mis Compras ===");
+        boolean tieneCompras = false;
+
+        for (Venta venta : ventas) {
+            if (venta.getClienteAssociado().equals(cliente)) {
+                System.out.printf("Factura #%d - Producto: %s - Cantidad: %d - Total: $%.2f%n",
+                    venta.getNumeroFactura(),
+                    venta.getProducto().getNombre(),
+                    venta.getCantidad(),
+                    venta.getTotal());
+                tieneCompras = true;
+            }
+        }
+
+        if (!tieneCompras) {
+            System.out.println("No tienes compras registradas.");
+        }
+    }
+
     public ArrayList<Venta> obtenerVentasCliente(Cliente cliente) {
         ArrayList<Venta> ventasCliente = new ArrayList<>();
         for (Venta venta : ventas) {

@@ -59,6 +59,9 @@ public class MenuAdministrador implements EstrategiaMenu {
             case 9:
                 administrador.cargarStockAProductosFaltantes();
                 break;
+            case 10:
+                administrador.verVentasRealizadas();
+                break;
             case 0:
                 System.out.println("Volviendo al menú principal...");
                 if (menuContexto != null) {
