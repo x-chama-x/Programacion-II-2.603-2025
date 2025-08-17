@@ -16,4 +16,20 @@ public class ProductoVendido {
     private double calcularMontoTotalParcial() {
         return precioAlMomentoVenta * cantidadVendida;
     }
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public double getPrecioAlMomentoVenta() {
+        return precioAlMomentoVenta;
+    }
+
+    public Integer getCantidadVendida() {
+        return cantidadVendida;
+    }
+
+    public double getMontoTotalParcial() {
+        return montoTotalParcial;
+    }
 }

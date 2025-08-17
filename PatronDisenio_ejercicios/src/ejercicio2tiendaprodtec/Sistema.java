@@ -14,7 +14,9 @@ public class Sistema {
     private ArrayList<Cliente> clientes;
     private ArrayList<Proveedor> proveedores;
     private ArrayList<Administrador> administradores;
+    private ArrayList<Venta> ventas;
     private MenuContexto menuContexto;
+    private int ultimoNumeroFactura = 0;
 
     private Sistema() {
         // Constructor privado para evitar instanciación externa
@@ -23,6 +25,7 @@ public class Sistema {
         this.clientes = new ArrayList<>();
         this.proveedores = new ArrayList<>();
         this.administradores = new ArrayList<>();
+        this.ventas = new ArrayList<>();
     }
 
     public static Sistema getInstancia() {
@@ -244,5 +247,59 @@ public class Sistema {
             }
         }
         return info.toString();
+    }
+
+    public Venta iniciarNuevaVenta(Cliente cliente) {
+        ultimoNumeroFactura++;
+        Venta nuevaVenta = new Venta(ultimoNumeroFactura, cliente);
+        ventas.add(nuevaVenta);
+        return nuevaVenta;
+    }
+
+    public boolean realizarCompra(Cliente cliente, Producto producto, int cantidad) {
+        if (producto.getStockDisponible() >= cantidad) {
+            Venta venta = iniciarNuevaVenta(cliente);
+            double precioUnitario = producto.getPrecioActual();
+            ProductoVendido productoVendido = new ProductoVendido(producto, precioUnitario, cantidad);
+            venta.agregarProducto(productoVendido);
+
+            // Actualizar stock
+            producto.setStockDisponible(producto.getStockDisponible() - cantidad);
+            return true;
+        }
+        return false;
+    }
+
+    public ArrayList<Venta> obtenerVentasCliente(Cliente cliente) {
+        ArrayList<Venta> ventasCliente = new ArrayList<>();
+        for (Venta venta : ventas) {
+            if (venta.getClienteAssociado().equals(cliente)) {
+                ventasCliente.add(venta);
+            }
+        }
+        return ventasCliente;
+    }
+
+    public ArrayList<Venta> obtenerTodasLasVentas() {
+        return new ArrayList<>(ventas);
+    }
+
+    public ArrayList<Producto> obtenerProductosEnStock() {
+        ArrayList<Producto> productosDisponibles = new ArrayList<>();
+        for (Producto producto : Stock) {
+            if (producto.getStockDisponible() > 0) {
+                productosDisponibles.add(producto);
+            }
+        }
+        return productosDisponibles;
+    }
+
+    public Cliente buscarClientePorCredenciales(String nombre, String clave) {
+        for (Cliente cliente : clientes) {
+            if (cliente.getNombre().equals(nombre) && cliente.getClave().equals(clave)) {
+                return cliente;
+            }
+        }
+        return null;
     }
 }
