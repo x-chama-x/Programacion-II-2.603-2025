@@ -31,20 +31,22 @@ public class MenuInicial implements EstrategiaMenu {
 
         Administrador admin = Sistema.getInstancia().validarAdministrador(nombre, clave);
         if (admin != null) {
-            contexto.setEstrategia(new MenuAdministrador(admin));
+            MenuAdministrador menuAdmin = new MenuAdministrador(admin);
+            menuAdmin.setMenuContexto(contexto);
+            contexto.setEstrategia(menuAdmin);
             return true;
         }
         return false;
     }
 
-    private boolean loginCliente() {
+    private Cliente loginCliente() {
         System.out.println("\n=== Login Cliente ===");
         System.out.print("Nombre: ");
         String nombre = scanner.nextLine();
         System.out.print("Clave: ");
         String clave = scanner.nextLine();
 
-        return Sistema.getInstancia().validarCliente(nombre, clave);
+        return Sistema.getInstancia().buscarClientePorCredenciales(nombre, clave);
     }
 
     @Override
@@ -58,9 +60,12 @@ public class MenuInicial implements EstrategiaMenu {
                 }
                 break;
             case 2:
-                if (loginCliente()) {
+                Cliente cliente = loginCliente();
+                if (cliente != null) {
                     System.out.println("Login exitoso!");
-                    contexto.setEstrategia(new MenuCliente());
+                    MenuCliente menuCliente = new MenuCliente(cliente);
+                    menuCliente.setMenuContexto(contexto);
+                    contexto.setEstrategia(menuCliente);
                 } else {
                     System.out.println("Credenciales inválidas");
                 }

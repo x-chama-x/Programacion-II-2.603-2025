@@ -4,9 +4,14 @@ import ejercicio2tiendaprodtec.personas.Administrador;
 
 public class MenuAdministrador implements EstrategiaMenu {
     private Administrador administrador;
+    private MenuContexto menuContexto;
 
     public MenuAdministrador(Administrador administrador) {
         this.administrador = administrador;
+    }
+
+    public void setMenuContexto(MenuContexto menuContexto) {
+        this.menuContexto = menuContexto;
     }
 
     @Override
@@ -56,6 +61,9 @@ public class MenuAdministrador implements EstrategiaMenu {
                 break;
             case 0:
                 System.out.println("Volviendo al menú principal...");
+                if (menuContexto != null) {
+                    menuContexto.setEstrategia(new MenuInicial(menuContexto));
+                }
                 break;
             default:
                 System.out.println("Opción inválida");
