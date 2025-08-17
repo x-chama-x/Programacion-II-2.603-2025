@@ -2,6 +2,7 @@ package ejercicio2tiendaprodtec.personas;
 
 import ejercicio2tiendaprodtec.Sistema;
 import ejercicio2tiendaprodtec.productos.Producto;
+import ejercicio2tiendaprodtec.menu.MenuStock;
 import java.util.ArrayList;
 
 public class Cliente extends Persona {
@@ -17,22 +18,9 @@ public class Cliente extends Persona {
         return String.format("Cliente: %s - CUIT: %s - Tel: %s", super.getNombre(), super.getCuit(), super.getTelefono());
     }
 
-    public void mostrarProductosDisponibles() {
-        ArrayList<Producto> productos = sistema.obtenerProductosEnStock();
-        if (productos.isEmpty()) {
-            System.out.println("No hay productos disponibles en stock.");
-            return;
-        }
-
-        System.out.println("\n=== Productos Disponibles ===");
-        for (int i = 0; i < productos.size(); i++) {
-            Producto producto = productos.get(i);
-            System.out.printf("%d. %s - Precio: $%.2f - Stock: %d%n",
-                    i + 1,
-                    producto.getNombre(),
-                    producto.getPrecioActual(),
-                    producto.getStockDisponible());
-        }
+    public void verProductosDisponibles() {
+        MenuStock menuStock = new MenuStock();
+        menuStock.mostrarMenu();
     }
 
     public void realizarCompra(int seleccion, int cantidad) {
