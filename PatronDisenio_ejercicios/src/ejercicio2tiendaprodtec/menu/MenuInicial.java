@@ -31,7 +31,9 @@ public class MenuInicial implements EstrategiaMenu {
 
         Administrador admin = Sistema.getInstancia().validarAdministrador(nombre, clave);
         if (admin != null) {
-            contexto.setEstrategia(new MenuAdministrador(admin));
+            MenuAdministrador menuAdmin = new MenuAdministrador(admin);
+            menuAdmin.setMenuContexto(contexto);
+            contexto.setEstrategia(menuAdmin);
             return true;
         }
         return false;
@@ -61,7 +63,9 @@ public class MenuInicial implements EstrategiaMenu {
                 Cliente cliente = loginCliente();
                 if (cliente != null) {
                     System.out.println("Login exitoso!");
-                    contexto.setEstrategia(new MenuCliente(cliente));
+                    MenuCliente menuCliente = new MenuCliente(cliente);
+                    menuCliente.setMenuContexto(contexto);
+                    contexto.setEstrategia(menuCliente);
                 } else {
                     System.out.println("Credenciales inválidas");
                 }

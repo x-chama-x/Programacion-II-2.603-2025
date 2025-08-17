@@ -10,11 +10,16 @@ public class MenuCliente implements EstrategiaMenu {
     private Cliente clienteActual;
     private Sistema sistema;
     private Scanner scanner;
+    private MenuContexto menuContexto;
 
     public MenuCliente(Cliente cliente) {
         this.clienteActual = cliente;
         this.sistema = Sistema.getInstancia();
         this.scanner = new Scanner(System.in);
+    }
+
+    public void setMenuContexto(MenuContexto menuContexto) {
+        this.menuContexto = menuContexto;
     }
 
     @Override
@@ -40,6 +45,9 @@ public class MenuCliente implements EstrategiaMenu {
                 break;
             case 0:
                 System.out.println("Volviendo al menú principal...");
+                if (menuContexto != null) {
+                    menuContexto.setEstrategia(new MenuInicial(menuContexto));
+                }
                 break;
             default:
                 System.out.println("Opción no válida");
