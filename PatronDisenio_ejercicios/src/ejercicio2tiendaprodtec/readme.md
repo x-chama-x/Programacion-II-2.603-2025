@@ -21,3 +21,13 @@ Se requiere implementar una aplicación para gestionar el circuito de ventas de 
 - Los proveedores no pueden acceder al sistema.
 
 ## Patrones utilizados
+
+1. **Patrón Strategy (Estrategia)**
+   - Implementado en el sistema de menús a través de la interfaz `EstrategiaMenu` y sus diferentes implementaciones (MenuCliente, MenuAdministrador, MenuStock, etc.)
+   - Permite cambiar dinámicamente el comportamiento del menú según el tipo de usuario.
+
+
+2. **Patrón Singleton**
+   - Implementado en la clase `Sistema`
+   - Garantiza una única instancia del sistema en toda la aplicación
+   - Utiliza constructor privado y método estático getInstancia() para controlar la creación
