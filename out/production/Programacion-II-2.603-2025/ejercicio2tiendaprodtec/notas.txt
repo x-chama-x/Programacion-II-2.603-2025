@@ -25,3 +25,7 @@
     - Según la opción seleccionada, se cambia al menú de Administrador o Cliente
     - Cada menú maneja sus propias opciones y lógica
     - Se mantiene el bucle hasta que el usuario elija salir
+
+
+------------------------------------
+Problema: mucha delegación de responsabilidades a la clase Sistema (muchos metodos y lógica compleja)
