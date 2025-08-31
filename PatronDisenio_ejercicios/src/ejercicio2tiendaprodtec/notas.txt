@@ -29,3 +29,4 @@
 
 ------------------------------------
 Problema: mucha delegación de responsabilidades a la clase Sistema (muchos metodos y lógica compleja)
+Posible solución: dividir cada responsabilidad de la clase Sistema en clases más pequeñas y especializadas.
