@@ -4,24 +4,29 @@ import java.io.File;
 
 public class BD {
     private static final String ARCHIVO = "estudiantes.txt";
+    private static final String ARCHIVO_MATERIAS = "materias.txt";
 
     public static void inicializarBD() {
         try {
             File archivo = new File(ARCHIVO);
-            if (!archivo.exists()) {
+            File archivoMaterias = new File(ARCHIVO_MATERIAS);
+            if (!archivo.exists() || !archivoMaterias.exists()) {
                 if (archivo.createNewFile()) {
-                    System.out.println("Archivo creado... ");
+                    System.out.println("Archivos creado... ");
                 } else {
-                    System.out.println("Archivo existente: ");
+                    System.out.println("Archivos existente: ");
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
-
         }
     }
 
     public static File getArchivo() {
         return new File(ARCHIVO);
+    }
+
+    public static File getArchivoMaterias() {
+        return new File(ARCHIVO_MATERIAS);
     }
 }

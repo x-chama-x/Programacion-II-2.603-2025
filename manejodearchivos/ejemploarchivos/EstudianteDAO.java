@@ -3,7 +3,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 public class EstudianteDAO {
-    private static final String ARCHIVO = "estudiantes.txt";
 
     // Metodo para verificar si un DNI ya existe
     public boolean existeDni(String dni) {
