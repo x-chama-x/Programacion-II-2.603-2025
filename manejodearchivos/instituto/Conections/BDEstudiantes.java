@@ -3,13 +3,13 @@ package instituto.Conections;
 import java.io.File;
 import java.io.IOException;
 
-public class BDEstudiantes {
+public class BDEstudiantes implements Conector {
     
     private static final String ARCHIVO = "estudiantes.txt";
 
     public static String getARCHIVO() { return ARCHIVO; }
     
-    public static void inicializarBD() {
+    public void inicializarBD() {
         try {
             File archivo = new File(ARCHIVO);
             if (!archivo.exists()) {
