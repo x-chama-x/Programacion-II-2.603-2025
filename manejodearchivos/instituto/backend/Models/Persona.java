@@ -4,20 +4,23 @@ public class Persona {
     
     private final int dni;
     private final String nombre;
-    private final int edad;
+    private final String apellido;
+    private final String fechaNac;
 
-    public Persona(int dni, String nombre, int edad) {
+    public Persona(int dni, String nombre, String apellido, String fechaNac) {
         this.dni = dni;
         this.nombre = nombre;
-        this.edad = edad;
+        this.apellido = apellido;
+        this.fechaNac = fechaNac;
     }
 
     public int getDni() { return dni; }
     public String getNombre() { return nombre; }
-    public int getEdad() { return edad; }
+    public String getApellido() { return apellido; }
+    public String getFechaNac() { return fechaNac; }
 
     @Override
     public String toString() {
-        return dni + "," + nombre + "," + edad;
+        return dni + "," + nombre + "," + apellido + "," + fechaNac;
     }
 }

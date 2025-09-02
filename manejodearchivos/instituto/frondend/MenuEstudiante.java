@@ -39,9 +39,9 @@ public class MenuEstudiante implements MenuConector {
 
     public void listar(){
         System.out.println("LISTA DE ESTUDIANTES...");
-        System.out.println("DNI:\t\tNombre:\t\tEdad:");
+        System.out.println("DNI:\t\tNombre:\t\tApellido:\t\tFecha Nac:");
         for(Estudiante e: dao.leerEstudiantes()){
-            System.out.println(e.getDni()+"\t\t"+ e.getNombre()+"\t\t"+e.getEdad());
+            System.out.println(e.getDni()+"\t\t"+ e.getNombre()+"\t\t"+e.getApellido()+"\t\t"+e.getFechaNac());
         }
     }
     public void agregar(){
@@ -50,10 +50,11 @@ public class MenuEstudiante implements MenuConector {
         sc.nextLine();
         System.out.print("Ingrese nombre: ");
         String nombre = sc.nextLine();
-        System.out.print("Ingrese edad: ");
-        int edad = sc.nextInt();
-        sc.nextLine();
-        dao.crearEstudiante(new Estudiante(dni, nombre, edad));
+        System.out.print("Ingrese apellido: ");
+        String apellido = sc.nextLine();
+        System.out.print("Ingrese fecha de nacimiento (dd/mm/yyyy): ");
+        String fechaNac = sc.nextLine();
+        dao.crearEstudiante(new Estudiante(dni, nombre, apellido, fechaNac));
     }
     public void actualizar(){
         System.out.print("Ingrese dni: ");
@@ -61,10 +62,11 @@ public class MenuEstudiante implements MenuConector {
         sc.nextLine();
         System.out.print("Ingrese nuevo nombre: ");
         String nombre = sc.nextLine();
-        System.out.print("Ingrese edad: ");
-        int edad = sc.nextInt();
-        sc.nextLine();
-        dao.actualizarEstudiante(dni, new Estudiante(dni, nombre, edad));
+        System.out.print("Ingrese nuevo apellido: ");
+        String apellido = sc.nextLine();
+        System.out.print("Ingrese nueva fecha de nacimiento (dd/mm/yyyy): ");
+        String fechaNac = sc.nextLine();
+        dao.actualizarEstudiante(dni, new Estudiante(dni, nombre, apellido, fechaNac));
     }
     public void buscar(){
         System.out.print("Ingrese dni: ");
