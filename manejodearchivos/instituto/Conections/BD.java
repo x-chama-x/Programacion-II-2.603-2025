@@ -5,5 +5,8 @@ public class BD {
     public static void conectar(){
         BDEstudiantes bdEstudiantes = new BDEstudiantes();
         bdEstudiantes.inicializarBD();
+
+        BDMaterias bdMaterias = new BDMaterias();
+        bdMaterias.inicializarBD();
     }
 }

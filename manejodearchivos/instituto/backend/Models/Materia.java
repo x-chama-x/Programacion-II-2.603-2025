@@ -1,20 +1,20 @@
 package instituto.backend.Models;
 
 public class Materia {
-    private final int cod;
+    private final int codigo;
     private final String nombre;
 
-    public Materia(int cod, String nombre) {
-        this.cod = cod;
+    public Materia(int codigo, String nombre) {
+        this.codigo = codigo;
         this.nombre = nombre;
     }
 
-    public int getCod() { return cod; }
+    public int getCodigo() { return codigo; }
     public String getNombre() { return nombre; }
 
     @Override
     public String toString() {
-        return cod + "," + nombre;
+        return codigo + "," + nombre;
     }
     
     public static Materia fromString(String linea) {

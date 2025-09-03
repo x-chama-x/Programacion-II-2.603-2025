@@ -12,7 +12,7 @@ public class Menu implements MenuConector {
         do {
             System.out.println("\n===== MENÚ PRINCIPAL =====");
             System.out.println("1. Estudiantes");
-            //System.out.println("2. Materias");
+            System.out.println("2. Materias");
             System.out.println("0. Salir del sistema");
             System.out.print("Elija una opción: ");
             op = sc.nextInt();
@@ -21,7 +21,8 @@ public class Menu implements MenuConector {
             switch (op) {
                 case 1 ->
                     estudiantes();
-                //case 2 -> materias();
+                case 2 ->
+                    materias();
                 case 0 ->
                     System.out.println("Saliendo del sistema...");
                 default ->
@@ -33,6 +34,11 @@ public class Menu implements MenuConector {
 
     public void estudiantes() {
         MenuEstudiante menu = new MenuEstudiante();
+        menu.IniciarMenu();
+    }
+
+    public void materias() {
+        MenuMateria menu = new MenuMateria();
         menu.IniciarMenu();
     }
 
