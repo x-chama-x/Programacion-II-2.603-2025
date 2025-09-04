@@ -101,14 +101,35 @@ public class MenuMateria implements MenuConector {
             return;
         }
 
+        // Obtener el nombre de la materia
+        String nombreMateria = "";
+        for (Materia m : dao.leerMaterias()) {
+            if (m.getCodigo() == codigo) {
+                nombreMateria = m.getNombre();
+                break;
+            }
+        }
+
         var estudiantes = daoRelaciones.obtenerEstudiantesPorMateria(codigo);
         if (estudiantes.isEmpty()) {
             System.out.println("No hay estudiantes asignados a esta materia.");
         } else {
-            System.out.println("\nEstudiantes de la materia código " + codigo + ":");
+            System.out.println("\n=== ESTUDIANTES DE LA MATERIA ===");
+            System.out.println("Materia: " + codigo + " - " + nombreMateria);
             System.out.println("Cantidad de estudiantes: " + estudiantes.size());
+            System.out.println("\nDNI:\t\tNombre:\t\tApellido:");
+            System.out.println("================================================");
+
+            // Obtener la lista completa de estudiantes
+            var todosEstudiantes = new instituto.backend.Controllers.DAOEstudiantes().leerEstudiantes();
+
             for (Integer dni : estudiantes) {
-                System.out.println("- DNI del estudiante: " + dni);
+                for (var e : todosEstudiantes) {
+                    if (e.getDni() == dni) {
+                        System.out.println(e.getDni() + "\t\t" + e.getNombre() + "\t\t" + e.getApellido());
+                        break;
+                    }
+                }
             }
         }
     }

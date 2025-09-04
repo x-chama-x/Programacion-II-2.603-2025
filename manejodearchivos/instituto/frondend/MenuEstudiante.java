@@ -105,14 +105,37 @@ public class MenuEstudiante implements MenuConector {
             return;
         }
 
+        // Obtener los datos completos del estudiante
+        String nombreEstudiante = "";
+        String apellidoEstudiante = "";
+        for (var e : dao.leerEstudiantes()) {
+            if (e.getDni() == dni) {
+                nombreEstudiante = e.getNombre();
+                apellidoEstudiante = e.getApellido();
+                break;
+            }
+        }
+
         var materias = daoRelaciones.obtenerMateriasPorEstudiante(dni);
         if (materias.isEmpty()) {
             System.out.println("El estudiante no está asignado a ninguna materia.");
         } else {
-            System.out.println("\nMaterias del estudiante DNI " + dni + ":");
+            System.out.println("\n=== MATERIAS DEL ESTUDIANTE ===");
+            System.out.println("Estudiante: " + dni + " - " + nombreEstudiante + " " + apellidoEstudiante);
             System.out.println("Cantidad de materias: " + materias.size());
+            System.out.println("\nCódigo:\t\tNombre de la Materia:");
+            System.out.println("================================================");
+
+            // Obtener la lista completa de materias
+            var todasMaterias = new instituto.backend.Controllers.MateriasDAO().leerMaterias();
+
             for (Integer codMateria : materias) {
-                System.out.println("- Código de materia: " + codMateria);
+                for (var m : todasMaterias) {
+                    if (m.getCodigo() == codMateria) {
+                        System.out.println(m.getCodigo() + "\t\t" + m.getNombre());
+                        break;
+                    }
+                }
             }
         }
     }

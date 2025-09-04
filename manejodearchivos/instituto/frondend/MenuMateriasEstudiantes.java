@@ -85,14 +85,27 @@ public class MenuMateriasEstudiantes implements MenuConector {
             return;
         }
 
+        // Obtener el nombre de la materia
+        String nombreMateria = "";
+        for (Materia m : daoMaterias.leerMaterias()) {
+            if (m.getCodigo() == codMateria) {
+                nombreMateria = m.getNombre();
+                break;
+            }
+        }
+
         List<Integer> estudiantes = dao.obtenerEstudiantesPorMateria(codMateria);
         if (estudiantes.isEmpty()) {
             System.out.println("No hay estudiantes asignados a esta materia.");
         } else {
-            System.out.println("\nEstudiantes de la materia " + codMateria + ":");
-            System.out.println("DNI:\t\tNombre:\t\tApellido:\t\tFecha Nac:");
+            System.out.println("\n=== ESTUDIANTES DE LA MATERIA ===");
+            System.out.println("Materia: " + codMateria + " - " + nombreMateria);
+            System.out.println("Cantidad de estudiantes: " + estudiantes.size());
+            System.out.println("\nDNI:\t\tNombre:\t\tApellido:\t\tFecha Nac:");
+            System.out.println("================================================================");
+
+            List<Estudiante> listaEstudiantes = daoEstudiantes.leerEstudiantes();
             for (Integer dni : estudiantes) {
-                List<Estudiante> listaEstudiantes = daoEstudiantes.leerEstudiantes();
                 for (Estudiante e : listaEstudiantes) {
                     if (e.getDni() == dni) {
                         System.out.println(e.getDni() + "\t\t" + e.getNombre() + "\t\t" +
@@ -114,14 +127,29 @@ public class MenuMateriasEstudiantes implements MenuConector {
             return;
         }
 
+        // Obtener los datos completos del estudiante
+        String nombreEstudiante = "";
+        String apellidoEstudiante = "";
+        for (Estudiante e : daoEstudiantes.leerEstudiantes()) {
+            if (e.getDni() == dniEstudiante) {
+                nombreEstudiante = e.getNombre();
+                apellidoEstudiante = e.getApellido();
+                break;
+            }
+        }
+
         List<Integer> materias = dao.obtenerMateriasPorEstudiante(dniEstudiante);
         if (materias.isEmpty()) {
             System.out.println("El estudiante no está asignado a ninguna materia.");
         } else {
-            System.out.println("\nMaterias del estudiante DNI " + dniEstudiante + ":");
-            System.out.println("Código:\t\tNombre:");
+            System.out.println("\n=== MATERIAS DEL ESTUDIANTE ===");
+            System.out.println("Estudiante: " + dniEstudiante + " - " + nombreEstudiante + " " + apellidoEstudiante);
+            System.out.println("Cantidad de materias: " + materias.size());
+            System.out.println("\nCódigo:\t\tNombre de la Materia:");
+            System.out.println("================================================");
+
+            List<Materia> listaMaterias = daoMaterias.leerMaterias();
             for (Integer codigo : materias) {
-                List<Materia> listaMaterias = daoMaterias.leerMaterias();
                 for (Materia m : listaMaterias) {
                     if (m.getCodigo() == codigo) {
                         System.out.println(m.getCodigo() + "\t\t" + m.getNombre());
