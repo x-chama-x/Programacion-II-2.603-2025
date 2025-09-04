@@ -13,7 +13,7 @@ import java.util.List;
 public class DAOEstudiantes {
     
     public void crearEstudiante(Estudiante e) {
-        if (!existe(e.getDni())) {
+        if (ValidadorDNI.puedeRegistrarEstudiante(e.getDni())) {
             try (BufferedWriter bw = new BufferedWriter(new FileWriter(BDEstudiantes.getARCHIVO(), true))) {
                 bw.write(e.toString());
                 bw.newLine();
@@ -23,7 +23,12 @@ public class DAOEstudiantes {
                 System.out.println("Estudiante agregado...");
             }
         } else {
-            System.out.println("ERROR: Estudiante ya registrado");
+            String tipoRegistro = ValidadorDNI.obtenerTipoRegistro(e.getDni());
+            if (tipoRegistro.equals("ESTUDIANTE")) {
+                System.out.println("ERROR: Ya existe un estudiante con el DNI " + e.getDni());
+            } else if (tipoRegistro.equals("PROFESOR")) {
+                System.out.println("ERROR: Ya existe un profesor con el DNI " + e.getDni() + ". No se puede registrar como estudiante.");
+            }
         }
     }
 
