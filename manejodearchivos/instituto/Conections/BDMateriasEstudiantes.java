@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class BDMateriasEstudiantes implements Conector {
 
-    private static final String ARCHIVO = "materias_estudiantes.txt";
+    private static final String ARCHIVO = "manejodearchivos/instituto/materias_estudiantes.txt";
 
     public static String getARCHIVO() {
         return ARCHIVO;
