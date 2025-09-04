@@ -11,5 +11,11 @@ public class BD {
 
         BDMateriasEstudiantes bdMateriasEstudiantes = new BDMateriasEstudiantes();
         bdMateriasEstudiantes.inicializarBD();
+
+        BDProfesores bdProfesores = new BDProfesores();
+        bdProfesores.inicializarBD();
+
+        BDProfesorMaterias bdProfesorMaterias = new BDProfesorMaterias();
+        bdProfesorMaterias.inicializarBD();
     }
 }
