@@ -8,5 +8,8 @@ public class BD {
 
         BDMaterias bdMaterias = new BDMaterias();
         bdMaterias.inicializarBD();
+
+        BDMateriasEstudiantes bdMateriasEstudiantes = new BDMateriasEstudiantes();
+        bdMateriasEstudiantes.inicializarBD();
     }
 }
