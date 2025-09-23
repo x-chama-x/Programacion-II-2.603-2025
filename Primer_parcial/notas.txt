@@ -1,0 +1,36 @@
+Sistema de Gestión de Base Militar
+Desarrollar una aplicación en Java para gestionar la información de una base militar, incluyendo soldados, oficiales y alojamientos. El sistema debe permitir realizar operaciones CRUD sobre cada entidad y gestionar sus relaciones.
+
+Objetos:
+Soldado: ID, DNI, nombre, apellido.
+
+Oficial: ID, DNI, nombre, apellido, rango.
+
+Cuartel: Código, sector.
+
+Reserva: Código de alojamiento, ID del soldado.
+
+Asignación: ID del oficial, ID del soldado.
+
+Relaciones:
+Cuarteles → Soldados : relación de uno a muchos.
+
+Oficiales → Soldados: relación de uno a muchos.
+
+Se debe crear un menú principal donde un administrativo tenga control absoluto sobre el sistema, incluyendo:
+
+Ingresar o retirar soldados a los cuarteles.
+
+Ingresar, modificar, consultar o eliminar datos de soldados, oficiales y cuarteles.
+
+Asignar oficial a soldados.
+
+Consultar:
+
+El nombre del soldado con su cuartel asignado.
+
+Los soldados supervisados por un oficial.
+
+El oficial asignado a un soldado.
+
+Cada entidad debe tener su menú específico con opciones CRUD y funcionalidades relacionadas.
