@@ -69,4 +69,25 @@ public class EstudianteDAO {
             ex.printStackTrace();
         }
     }
+
+    public Estudiante buscarPorLegajo(int legajo) {
+        String sql = "SELECT * FROM estudiante WHERE legajo = ?";
+        try (Connection conn = ConexionDB.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, legajo);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return new Estudiante(
+                        rs.getInt("legajo"),
+                        rs.getInt("dni"),
+                        rs.getString("nombre"),
+                        rs.getString("apellido"),
+                        rs.getDate("fechaNacimiento").toLocalDate()
+                );
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null; // Si no encuentra el estudiante
+    }
 }

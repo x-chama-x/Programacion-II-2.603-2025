@@ -11,6 +11,7 @@ public class VistaEstudiante {
         System.out.println("2. Listar estudiantes");
         System.out.println("3. Actualizar estudiante");
         System.out.println("4. Eliminar estudiante");
+        System.out.println("5. Buscar estudiante por legajo");
         System.out.println("0. Volver");
         System.out.print("Opción: ");
         return scanner.nextInt();

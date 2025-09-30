@@ -59,4 +59,22 @@ public class MateriaDAO {
             ex.printStackTrace();
         }
     }
+
+    public Materia buscarPorCodigo(int codigo) {
+        String sql = "SELECT * FROM materia WHERE codigo = ?";
+        try (Connection conn = ConexionDB.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, codigo);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return new Materia(
+                        rs.getInt("codigo"),
+                        rs.getString("nombreMateria")
+                );
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null; // Si no encuentra la materia
+    }
 }

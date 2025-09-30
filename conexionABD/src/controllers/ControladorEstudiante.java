@@ -52,6 +52,16 @@ public class ControladorEstudiante {
                     int legajo = sc.nextInt();
                     dao.eliminar(legajo);
                 }
+                case 5 -> {
+                    System.out.print("Ingrese legajo a buscar: ");
+                    int legajo = sc.nextInt();
+                    Estudiante estudiante = dao.buscarPorLegajo(legajo);
+                    if (estudiante != null) {
+                        System.out.println("Estudiante encontrado: " + estudiante);
+                    } else {
+                        System.out.println("Estudiante no encontrado.");
+                    }
+                }
             }
         } while (opcion != 0);
     }

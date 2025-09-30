@@ -39,6 +39,16 @@ public class ControladorMateria {
                     int codigo = sc.nextInt();
                     dao.eliminar(codigo);
                 }
+                case 5 -> {
+                    System.out.print("Ingrese código a buscar: ");
+                    int codigo = sc.nextInt();
+                    Materia materia = dao.buscarPorCodigo(codigo);
+                    if (materia != null) {
+                        System.out.println("Materia encontrada: " + materia);
+                    } else {
+                        System.out.println("Materia no encontrada.");
+                    }
+                }
             }
         } while (opcion != 0);
     }
